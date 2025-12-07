@@ -16,7 +16,14 @@
     <h1>Inflation Calculator</h1>
 
     <form action="/calculate" method="post">
-        <label for="items_text">Enter items (format: name,in_house,doordash):</label><br>
+        <label for="items_text">
+            Enter one item per line using the correct format as mentioned below:<br><br>
+            Name_of_the Item,In_house_price,Doordash_price<br><br>
+            Example:<br>
+            Burger,100,120<br>
+            Pizza,200,180<br><br>
+            ^Do not enter the currency symbol
+          </label><br>
         <textarea id="items_text" name="items_text" rows="8" cols="60"
                   placeholder="Burger,100,120&#10;Pizza,200,180"></textarea>
         <br><br>

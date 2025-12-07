@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inflation Calculator</title>
+    <!-- Link to your static CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Logo bar at the top -->
+    <div class="logo-bar">
+        <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo 1" class="logo">
+        <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo 2" class="logo">
+    </div>
+
+    <h1>Inflation Calculator</h1>
+
+    <form action="/calculate" method="post">
+        <label for="items_text">Enter items (format: name,in_house,doordash):</label><br>
+        <textarea id="items_text" name="items_text" rows="8" cols="60"
+                  placeholder="Burger,100,120&#10;Pizza,200,180"></textarea>
+        <br><br>
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+</html>

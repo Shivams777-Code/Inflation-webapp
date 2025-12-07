@@ -5,18 +5,61 @@
     <title>Inflation Results</title>
     <!-- Link to your static CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Table styling */
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: rgba(0, 123, 255, 0.85);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Zebra striping for rows */
+        tr:nth-child(even) {
+            background-color: rgba(240, 240, 240, 0.8);
+        }
+
+        tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Back link styling */
+        a {
+            text-decoration: none;
+            color: rgba(0, 123, 255, 1);
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <!-- Logo bar at the top -->
     <div class="logo-bar">
+        <span class="logo-text">Developed by</span>
         <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo 1" class="logo">
-        <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo 2" class="logo">
     </div>
 
-    <h1>Inflation Results</h1>
+    <h1 style="text-align:center;">Inflation Results</h1>
 
     <!-- Show average inflation -->
-    <h2>
+    <h2 style="text-align:center;">
         Average Inflation:
         {% if avg_inflation is not none %}
             {{ "%.2f"|format(avg_inflation) }}%
@@ -33,7 +76,6 @@
             <th>Doordash</th>
             <th>Inflation %</th>
             <th>Check</th>
-            <th>Error</th>
         </tr>
         {% for it in items %}
         <tr>
@@ -58,16 +100,13 @@
                     {{ it.Check }}
                 {% endif %}
             </td>
-            <td>
-                {% if it.error %}
-                    {{ it.error }}
-                {% endif %}
-            </td>
         </tr>
         {% endfor %}
     </table>
 
     <!-- Back button -->
-    <p><a href="/">&#8592; Back to Calculator</a></p>
+    <p style="text-align:center;">
+        <a href="/">&#8592; Back to Calculator</a>
+    </p>
 </body>
 </html>

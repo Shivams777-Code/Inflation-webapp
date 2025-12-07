@@ -9,8 +9,8 @@
 <body>
     <!-- Logo bar at the top -->
     <div class="logo-bar">
+        <span class="logo-text">Developed by</span><br>
         <img src="{{ url_for('static', filename='logo1.png') }}" alt="Logo 1" class="logo">
-        <img src="{{ url_for('static', filename='logo2.png') }}" alt="Logo 2" class="logo">
     </div>
 
     <h1>Inflation Calculator</h1>
@@ -18,14 +18,14 @@
     <form action="/calculate" method="post">
         <label for="items_text">
             Enter one item per line using the correct format as mentioned below:<br><br>
-            Name_of_the Item,In_house_price,Doordash_price<br><br>
+            Name_of_the Item<span class="blue-comma">,</span>In_house_price<span class="blue-comma">,</span>Doordash_price<br><br>
             Example:<br>
-            Burger,100,120<br>
-            Pizza,200,180<br><br>
-            ^Do not enter the currency symbol
-          </label><br>
-        <textarea id="items_text" name="items_text" rows="8" cols="60"
-                  placeholder="Burger,100,120&#10;Pizza,200,180"></textarea>
+            Burger<span class="blue-comma">,</span>100<span class="blue-comma">,</span>120<br>
+            Pizza<span class="blue-comma">,</span>200<span class="blue-comma">,</span>180<br><br>
+            **Do not enter the currency symbol
+        </label><br>
+        <textarea id="items_text" name="items_text" rows="10" cols="60"
+                  placeholder="Type your input here"></textarea>
         <br><br>
         <button type="submit">Calculate</button>
     </form>

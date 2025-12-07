@@ -1,76 +1,72 @@
-/* General page styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+/* Logo text styling */
+.logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
     color: #333;
 }
 
-/* Logo bar styling */
+/* Logo image styling */
+.logo {
+    height: 70px;
+    width: 110px;
+    margin: 0px;
+}
+
+/* Center the logo bar */
 .logo-bar {
-    display: flex;
-    align-items: center;
-    gap: 20px;           /* space between logos */
-    margin-bottom: 20px; /* space below logos */
+    display: flex;              /* align items side by side */
+    justify-content: right;    /* center horizontally */
+    align-items: center;        /* align vertically */
+    margin-top: 20px;           /* optional spacing from top */
 }
 
-.logo-bar img {
-    height: 80px;        /* adjust logo size */
+/* Background image (Logo2) faded behind everything */
+body {
+    position: relative;
+    z-index: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
 }
 
-/* Headings */
-h1 {
-    color: #222;
-    margin-bottom: 15px;
+body::before {
+    content: "";
+    background: url("../static/logo2.png") no-repeat center center;
+    background-size: cover;
+    opacity: 0.5; /* adjust fade level */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1; /* keep background behind content */
 }
 
-/* Form styling */
-form {
-    margin-bottom: 30px;
-}
-
+/* Textarea styling with transparency */
 textarea {
-    font-family: monospace;
-    padding: 10px;
+    background-color: rgba(216, 201, 201, 0.6); /* semi-transparent white */
     border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
     width: 100%;
     max-width: 600px;
+    box-sizing: border-box;
 }
 
+/* Button styling with slight transparency */
 button {
-    background-color: #4CAF50;
+    background-color: rgba(0, 123, 255, 0.85); /* semi-transparent blue */
     color: white;
-    padding: 10px 18px;
     border: none;
-    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 15px;
+    border-radius: 4px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: rgba(0, 123, 255, 1); /* solid blue on hover */
 }
-
-/* Table styling (for result.html) */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px 12px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
+.blue-comma {
+    color: blue;
     font-weight: bold;
 }
 
-tr:nth-child(even) {
-    background-color: #fafafa;
-}
